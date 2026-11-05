@@ -1,0 +1,7 @@
+node_modules/
+/.omo/
+/.omc/
+/promo/
+/repro.cjs
+/proof.html
+/*.tgz

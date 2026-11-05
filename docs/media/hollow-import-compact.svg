@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="132" viewBox="0 0 640 132" role="img" aria-labelledby="name">
+  <title id="name">HollowImport</title>
+  <rect width="640" height="132" fill="#e9f2e5"/>
+  <text x="25" y="90" font-family="system-ui,Segoe UI,Arial,sans-serif" font-weight="750" font-size="66" letter-spacing="-3.5" fill="#143e32">HollowImport</text>
+  <g fill-rule="evenodd" stroke="#143e32" stroke-width="2" stroke-linejoin="round">
+    <path d="M481 43l61-24v58l-61 24z" fill="#143e32"/>
+    <path d="M487 51l29-12m-29 23l40-16m-40 27l32-13m-32 24l22-9" fill="none" stroke="#badcae"/>
+    <path d="M505 49l61-24v58l-61 24z M515 56l40-16v36l-40 16z" fill="#cde1cb"/>
+    <path d="M527 57l61-24 8 4-61 24z" fill="#d9efcb"/>
+    <path d="M527 57l8 4v58l-8-4z" fill="#79b286"/>
+    <path d="M535 61l61-24v58l-61 24z M546 68l39-15v35l-39 15z" fill="#aadd8b"/>
+  </g>
+</svg>

@@ -1,0 +1,2 @@
+# Keep the standalone example byte-identical to the copy embedded in its HTML.
+examples/sdk-2273.cjs text eol=lf
