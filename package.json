@@ -12,7 +12,7 @@
   "files": [
     "cli.cjs", "lib", "examples", "test.cjs",
     "docs/media/hollow-import.svg", "docs/media/hollow-import-compact.svg",
-    "docs/media/capture-replay.gif", "docs/media/capture-replay.mp4",
+    "docs/media/capture-replay.gif", "docs/media/capture-replay.mp4", "docs/media/capture-replay-still.png",
     "README.md", "LICENSE"
   ],
   "license": "MIT"

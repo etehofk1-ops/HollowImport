@@ -20,11 +20,13 @@ node examples/graphql-ws-v6.cjs
 In v6, `graphql-ws/lib/use/ws` fails and `graphql-ws/use/ws` works. Look for `MATCH` on replay. [Upstream migration note](https://github.com/enisdenjo/graphql-ws/releases/tag/v6.0.0)
 
 <picture>
-  <source media="(prefers-reduced-motion: reduce)" srcset="examples/report-preview.png">
-  <img src="docs/media/capture-replay.gif" alt="The MCP SDK root fails to resolve; the client entry resolves. Both results match in a clean directory containing only repro.cjs.">
+  <source media="(prefers-reduced-motion: reduce)" srcset="docs/media/capture-replay-still.png">
+  <img src="docs/media/capture-replay.gif" alt="A private package's import fails. Capture renames the package and its files, writes one repro.cjs, and the replay in an empty folder prints MATCH.">
 </picture>
 
-The recording shows a second case, the MCP SDK's missing root entry. [Watch the MP4](docs/media/capture-replay.mp4) · [View a still](examples/report-preview.png) · [SDK issue #2273](https://github.com/modelcontextprotocol/typescript-sdk/issues/2273) · [Replay source](examples/sdk-2273.cjs)
+The recording follows a synthetic private package, `@acme/payments-sdk`, from the failed import to `MATCH` in an empty folder. Its terminal text is real CLI output. [Watch the MP4 with sound](docs/media/capture-replay.mp4) · [View a still](docs/media/capture-replay-still.png)
+
+Another real case: the MCP SDK's missing root entry. [SDK issue #2273](https://github.com/modelcontextprotocol/typescript-sdk/issues/2273) · [Replay source](examples/sdk-2273.cjs) · [Report preview](examples/report-preview.png)
 
 <details>
 <summary>Compare the graphql-ws package lint with the consumer's lookup</summary>
