@@ -2,18 +2,39 @@
   "name": "hollow-import",
   "version": "0.1.0",
   "description": "Turn a private Node exports failure into one source-free, verified bug report.",
-  "repository": { "type": "git", "url": "git+https://github.com/etehofk1-ops/HollowImport.git" },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/etehofk1-ops/HollowImport.git"
+  },
   "bugs": "https://github.com/etehofk1-ops/HollowImport/issues",
   "homepage": "https://github.com/etehofk1-ops/HollowImport#readme",
   "type": "commonjs",
-  "bin": { "hollow-import": "./cli.cjs" },
-  "engines": { "node": "^22.15.0 || >=24.0.0" },
-  "scripts": { "test": "node --test test.cjs" },
+  "bin": {
+    "hollow-import": "cli.cjs"
+  },
+  "engines": {
+    "node": "^22.15.0 || >=24.0.0"
+  },
+  "scripts": {
+    "test": "node --test test.cjs"
+  },
   "files": [
-    "cli.cjs", "lib", "examples", "test.cjs",
-    "docs/media/hollow-import.svg", "docs/media/hollow-import-compact.svg",
-    "docs/media/capture-replay.gif", "docs/media/capture-replay.mp4", "docs/media/capture-replay-still.png",
-    "README.md", "LICENSE"
+    "cli.cjs",
+    "lib",
+    "examples",
+    "test.cjs",
+    "README.md",
+    "LICENSE"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "keywords": [
+    "node",
+    "exports",
+    "esm",
+    "commonjs",
+    "resolution",
+    "repro",
+    "bug-report",
+    "privacy"
+  ]
 }

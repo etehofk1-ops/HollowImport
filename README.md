@@ -39,11 +39,13 @@ The rename was intentional. A match verifies the recorded outcomes in the fixtur
 
 ## Capture your own
 
-**Reporter.** In the HollowImport folder, replace the example package name and consumer path below. Point `--from` at the directory containing the file with the failing import. The package must already be installed and reachable from there. The command writes `repro.cjs` in your current directory and requires a new output filename.
+**Reporter.** Replace the example package name and consumer path below. Point `--from` at the directory containing the file with the failing import. The package must already be installed and reachable from there. The command writes `repro.cjs` in your current directory and requires a new output filename.
 
 ```sh
-node cli.cjs capture @company/library/internal --from /path/to/consumer --out repro.cjs
+npx hollow-import capture @company/library/internal --from /path/to/consumer --out repro.cjs
 ```
+
+From a clone of this repository, run `node cli.cjs` in place of `npx hollow-import`.
 
 **For a GitHub issue.** Run the command below and attach only `proof.html` to your issue comment. It contains the results table and a downloadable copy of `repro.cjs`. [GitHub attachment formats](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/attaching-files#supported-file-types)
 
@@ -65,7 +67,7 @@ node repro.cjs
 If every mode fails for the requested entry, HollowImport tries the package root as a control. If the root is the broken entry, specify a working subpath from the same package:
 
 ```sh
-node cli.cjs capture @company/library --from /path/to/consumer --control @company/library/client --out repro.cjs
+npx hollow-import capture @company/library --from /path/to/consumer --control @company/library/client --out repro.cjs
 ```
 
 Add `--condition development` to compare the default conditions with a second run. Private condition names become numbered flags. When ambient Node flags, `NODE_OPTIONS` or `NODE_PATH` are present, use a clean shell or explicitly opt into stock resolution with `--clean`.
@@ -80,7 +82,7 @@ To paste the verified results into an issue, use `node repro.cjs --markdown`.
 - `node repro.cjs --unpack editable-repro` creates an editable package tree and a command that triggers the native failure.
 - `node repro.cjs --inspect` prints the recorded fixture data.
 
-To see the bundled [example report](examples/sdk-2273.html) from a checkout, open `examples/sdk-2273.html` in your browser. To practice the capture step, run `node cli.cjs demo --out practice.cjs`.
+To see the bundled [example report](examples/sdk-2273.html) from a checkout, open `examples/sdk-2273.html` in your browser. To practice the capture step, run `npx hollow-import demo --out practice.cjs`.
 
 </details>
 
