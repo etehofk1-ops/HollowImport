@@ -1,7 +1,7 @@
 {
   "name": "hollow-import",
-  "version": "0.1.0",
-  "description": "Turn a private Node exports failure into one source-free, verified bug report.",
+  "version": "0.1.1",
+  "description": "Can't share private code? Turn a Node.js import error (ERR_PACKAGE_PATH_NOT_EXPORTED, ERR_MODULE_NOT_FOUND) into one runnable, source-free repro.",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/etehofk1-ops/HollowImport.git"
@@ -29,12 +29,25 @@
   "license": "MIT",
   "keywords": [
     "node",
+    "nodejs",
     "exports",
+    "package-exports",
     "esm",
     "commonjs",
+    "cjs",
+    "module-resolution",
     "resolution",
+    "ERR_PACKAGE_PATH_NOT_EXPORTED",
+    "ERR_MODULE_NOT_FOUND",
+    "MODULE_NOT_FOUND",
+    "ERR_UNSUPPORTED_DIR_IMPORT",
     "repro",
+    "reproduction",
+    "minimal-reproduction",
     "bug-report",
-    "privacy"
+    "issue",
+    "debugging",
+    "privacy",
+    "cli"
   ]
 }

@@ -5,9 +5,38 @@
   </picture>
 </h1>
 
-Reporting a Node.js `exports` failure from a private repo? Share one `repro.cjs` that replays **the failed import and a working one**. Your source stays local.
+[![npm](https://img.shields.io/npm/v/hollow-import)](https://www.npmjs.com/package/hollow-import) ![node](https://img.shields.io/node/v/hollow-import) ![dependencies: 0](https://img.shields.io/badge/dependencies-0-brightgreen) [![license: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+
+**Your import broke. The maintainer asks for a minimal repro. Your code is private.**
+
+HollowImport turns that failure into **one `repro.cjs`** that replays the same Node.js error on anyone's machine — with no source code, no package names and no paths from your project. The maintainer runs `node repro.cjs` and sees `MATCH`.
+
+```sh
+npx hollow-import demo --out try.cjs && node try.cjs
+```
 
 [18-second overview (MP4)](https://github.com/etehofk1-ops/HollowImport/releases/download/v0.1.0/hollow-import-promo-v2.mp4) · [Capture](#capture-your-own) · [Privacy](#what-gets-shared) · [Scope](#supported-cases) · [MIT license](LICENSE)
+
+<picture>
+  <source media="(prefers-reduced-motion: reduce)" srcset="docs/media/capture-replay-still.png">
+  <img src="docs/media/capture-replay.gif" alt="A private package's import fails. Capture renames the package and its files, writes one repro.cjs, and the replay in an empty folder prints MATCH.">
+</picture>
+
+## Seeing one of these?
+
+If an installed package fails to resolve with one of these errors, HollowImport can capture it:
+
+```text
+Error [ERR_PACKAGE_PATH_NOT_EXPORTED]: Package subpath './lib/use/ws' is not defined by "exports" in .../node_modules/<pkg>/package.json
+Error [ERR_PACKAGE_PATH_NOT_EXPORTED]: No "exports" main defined in .../node_modules/<pkg>/package.json
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '.../node_modules/<pkg>/dist/index.js' imported from ...
+Error: Cannot find module '.../node_modules/<pkg>/dist/index.cjs'  (code: 'MODULE_NOT_FOUND')
+Error [ERR_UNSUPPORTED_DIR_IMPORT]: Directory import '.../node_modules/<pkg>/utils' is not supported resolving ES modules imported from ...
+```
+
+Typical causes: a subpath removed in a major version, a package that works with `require` but not `import` (or the reverse), a missing root `"."` entry, an `exports` target pointing at a file that was never published, and `import` vs `require` / custom condition branches that disagree.
+
+Not covered: `ERR_REQUIRE_ESM`, errors thrown while the module runs, TypeScript `paths`, and Vite/Webpack/Jest resolver settings. Those need a different reproduction.
 
 ## Replay a real import migration
 
@@ -19,12 +48,7 @@ node examples/graphql-ws-v6.cjs
 
 In v6, `graphql-ws/lib/use/ws` fails and `graphql-ws/use/ws` works. Look for `MATCH` on replay. [Upstream migration note](https://github.com/enisdenjo/graphql-ws/releases/tag/v6.0.0)
 
-<picture>
-  <source media="(prefers-reduced-motion: reduce)" srcset="docs/media/capture-replay-still.png">
-  <img src="docs/media/capture-replay.gif" alt="A private package's import fails. Capture renames the package and its files, writes one repro.cjs, and the replay in an empty folder prints MATCH.">
-</picture>
-
-The recording follows a synthetic private package, `@acme/payments-sdk`, from the failed import to `MATCH` in an empty folder. Its terminal text is real CLI output. [Watch the MP4 with sound](docs/media/capture-replay.mp4) · [View a still](docs/media/capture-replay-still.png)
+The recording above follows a synthetic private package, `@acme/payments-sdk`, from the failed import to `MATCH` in an empty folder. Its terminal text is real CLI output. [Watch the MP4 with sound](docs/media/capture-replay.mp4) · [View a still](docs/media/capture-replay-still.png)
 
 Another real case: the MCP SDK's missing root entry. [SDK issue #2273](https://github.com/modelcontextprotocol/typescript-sdk/issues/2273) · [Replay source](examples/sdk-2273.cjs) · [Report preview](examples/report-preview.png)
 
